@@ -1,33 +1,87 @@
-= Sequentially
+JSJaC - JavaScript Jabber Client Library
+========================================
 
-Sequentially is a library of temporal and frequency adverbs for
-JavaScript.  It provides methods to queue a function for deferred or
-periodic execution, and to throttle the rate or number of times that a
-function can be called.  You could think of it as a kind of
-memoization, where instead of caching the result it modifies *when*
-and *whether* a function is called.
+JSJaC is a jabber/XMPP client library written in JavaScript to ease
+implementation of web based jabber/XMPP clients. For communication
+with a jabber server it needs to support either [1]HTTP Polling or
+[2]XMPP Over BOSH (formerl known as HTTP Binding).
+JSJaC has an object oriented interface which should be quite easy to
+use.
+Communication is done by using the HTTPRequest object also refered to
+as AJAX technology. Your browser must support this.
+JSJaC is fully compatible with all major AJAX/JavaScript frameworks
+like prototype, mootools, jQuery, dojo and YUI!.
 
-The {demo page}[http://osteele.com/sources/javascript/sequentially]
-contains API documentation and interactive examples for most of the
-functions.  I've added a couple of functions more recently that aren't
-on that page, but are in the specs[http://osteele.com/sources/javascript/sequentially/specs] instead:
+License
+=======
 
-  Sequentially.trickle.forEach(array, fn, ms, k)
+JSJaC is licensed under the terms of the GNU Lesser General Public 
+License (LGPL). Please refer to the file named 'COPYING' that came with 
+this distribution for details.
 
-Call +fn+ on each element of +array+, and finally call +k+.  The
-function is applied to a slice of elements until +ms+ has elapsed; the
-caller then waits a frame before applying it to the next slice.
+Hints on Usage
+==============
+
+Service Address
+---------------
+
+Due to security restrictions you may have to forward or proxy requests
+to your jabber server's service address.
+
+Let's say your JSJaC based web application is located at
+http://example.com. Your Jabber server is at jabber.example.com and
+it's HTTP Binding service is located at
+http://jabber.example.org:5280.
+
+As most browser don't allow scripts to connect to a different domain
+and/or port as they have been loaded from you'd have to find a way how
+to access this service at some URI hosted at http://example.com/.
+
+If you're using apache you could use mod_proxy and mod_rewrite to do
+this job for you:
+
+%<---
+<VirtualHost *>
+  Servername example.com
+  DocumentRoot /var/ww
+  AddDefaultCharset UTF-8
+  RewriteEngine On
+  RewriteRule ^/http-bind/ http://jabber.example.com:5280/http-bind/ [P]
+</VirtualHost>
+%<---
+
+With this you'd end up having access to the Jabber server's service at
+http://example.com/http-bind/ (the httpbase address).
 
 
-  Sequentially.trickle.map(array, fn, ms, k)
+Debug Logger
+------------
 
-Call +fn+ on each element of +array+, collecting the results into an
-array that is returned and passed as an argument to +k+.  The function
-is applied to a slice of elements until +ms+ has elapsed; the caller
-then waits a frame before applying it to the next slice.  The return
-value is initially empty.
+JSJaCConnection supports use of [3]JSDebugger which is available
+separately.
 
-== License
+JSJaC also ships with a class 'JSJaCConsoleLogger' which lets you log to
+Firebug's and Safari's console.
 
-Copyright 2007-2008 by Oliver Steele.  All rights reserved.
-Available under the MIT License.
+
+Example
+-------
+For an example on how to use this library within your web application
+please have to look at 'examples/simpleclient.html'.
+
+Supported Browsers and Platforms
+================================
+
+The following browsers are known to work. Let me know about others!
+
+Microsoft Internet Explorer 6+7
+Firefox 2.0.x
+Opera 9
+Safari 3
+
+
+References:
+===========
+[1] http://www.xmpp.org/extensions/xep-0025.html
+[2] http://www.xmpp.org/extensions/xep-0206.html
+[3] http://svn.stefan-strigler.de/JSDebugger/trunk
