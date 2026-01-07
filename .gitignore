@@ -1,0 +1,12 @@
+\.DS_Store
+\#*\#
+.\#*
+*.orig
+
+sequentially.api.html
+
+*.min.js
+*.gz
+
+.hg
+html

@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Sequentially</title>
+    <script type="text/javascript" src="/javascripts/jquery-1.2.1.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.scrollTo-min.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.rule-min"></script>
+    <script type="text/javascript" src="../collection-utils.js"></script>
+    <script type="text/javascript" src="../gradients.js"></script>
+    <script type="text/javascript" src="../functional/functional.min.js"></script>
+    <script type="text/javascript" src="sequentially.js"></script>
+    <script type="text/javascript" src="../protodoc/Base.js"></script>
+    <script type="text/javascript" src="../protodoc/protodoc.js"></script>
+    <script type="text/javascript" src="../protodoc/protodoc.viewer.js"></script>
+    <script type="text/javascript" src="message-viewer.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="../protodoc/protodoc.css"/>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+  </head>
+  <body>
+    <h1>Sequentially<span class="subtitle">: Adverbs for JavaScript (preview version)</span></h1>
+    <div class="navbar">
+      <input type="checkbox" id="header-toggle" value="on" checked="checked"/> header
+      <span style="display:none">
+      | <a href="http://osteele.com/archives/2007/11/sequentially">announcement</a>
+      </span>
+      | download:
+      <a href="sequentially.min.js.gz">compressed (&lt;1K min gz)</a>
+      | <a href="sequentially.js">source</a>
+      | <a href="/sources">more</a>
+    </div>
+    <div id="header">
+      <div id="intro">
+        <p><dfn>Sequentially</dfn> is a library of temporal and
+        frequency adverbs for JavaScript.  It provides methods to
+        queue a function for deferred or periodic execution, and to
+        throttle the rate or number of times that a function can be
+        called.  You could think of it as a kind of memoization, where
+        instead of caching the result it modifies <em>when</em> and
+        <em>whether</em> a function is called.</p>
+
+        <p>This is a <em>preview release</em>.  I'll probably change the API
+        as I experiment with how best to use this in my own programs.</p>
+      </div>
+
+      <div id="noscript">
+        <span class="initial">You either have JavaScript turned off or
+        you're using a browser that this page doesn't fully support
+        (even though the Sequentially library may).  Either way,
+        </span> you're not seeing the interactive examples.  Try <a
+        href="http://www.mozilla.org/products/firefox/">Mozilla
+        Firefox</a> or <a
+        href="http://www.apple.com/safari/download/">Apple Safari
+        3.0</a>.
+      </div>
+    </div>
+
+    <div id="messages" class="left">
+      <a href="#" class="left" title="Move this panel to the left side of the window.">&laquo;</a>
+      <a href="#" class="right" title="Move this panel to the right side of the window.">&raquo;</a>
+      <table>
+        <tr><th class="instr">Recent Messages (<span id="clock" class="timestamp"></span>)</th></tr>
+        <tr><td>
+        <div id="output"></div></td></tr>
+      </table>
+    </div>
+
+    <table class="docs">
+      <tr>
+        <td valign="top">
+          <h2>API Documentation <span class="download">(<a href="sequentially.js">source</a>)</span></h2>
+          <div id="docs" class="protodoc docs">Documentation failed to load.</div>
+        </td>
+        <td valign="top">
+          <h2>Examples <span class="download">(<a href="examples.js">source</a>)</span></h2>
+          <div id="examples" class="protodoc examples" style="z-index:10">Examples failed to load.</div>
+        </td>
+      </tr>
+    </table>
+    <div id="footer">
+      Copyright 2007 by <a href="http://osteele.com">Oliver Steele</a>.  This work is licensed under the <a href="MIT-LICENSE">MIT license</a>.
+      <div style="display:none">
+      <a href="#" id="write-tests">View</a>/<a href="#" id="run-tests">run</a> tests.</div>
+      <a href="sequentially.js" target="_blank">View source</a>.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+// Finally, apply each element of an array, starting out once per
+// second, with incremental backoff.
+outputter('sequentially').
+  sequentially('a few words'.split(' ')).
+  periodically(1000, {backoff:true});
+
+alternating(loadImage, createImage).only(100).periodically(1000);
+
+var fn = function(){return 1}.eventually();
+output(fn.join()); // calls it immediately
+
+// add error handling?
+/// An argument to Function.sequentially eturns this to indicate that it should be
+/// called again.
+Sequentially.repeat = Sequentially.repeat || {toString:function(){return "Sequentially.repeat"}};
+
+
+exactly
+periodically
+eventually
+occasionally
+regularly
+[in]frequently
+sporadically
+
+adverbs of frequency
+always constantly continually frequently intermittently occasionally
+often periodically rarely regularly
+generally normally
+often seldom sometimes never
+daily (bi)weekly monthly yearly
+
+
+always, continually, frequently, occasionally, often, once, twice, periodically, repeatedly, sometimes, usually etc.
+b) ever, hardly ever, never, rarely, scarcely ever, seldom
+
+cf. priority and frequency
